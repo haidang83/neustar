@@ -3,6 +3,7 @@ package util;
 import javax.servlet.http.HttpServletRequest;
 
 public class IpUtil {
+	public static final String UNKNOWN_VALUE = "Unknown";
 	private static final String IP_V6_INDICATOR = ":";
 	private static final String X_FORWARDED_FOR_HEADER = "X-FORWARDED-FOR";
 

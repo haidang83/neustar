@@ -1,4 +1,4 @@
-package view;
+package data;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
@@ -20,10 +20,9 @@ import bean.GeoPointResponseBean.Location;
 import bean.GeoPointResponseBean.StateData;
 import bean.IpDataDisplayBean;
 
-public class IpDataViewHelper {
+public class IpDataHelper {
 
-	private static final String UNKNOWN_VALUE = "Unknown";
-	private static Logger log = Logger.getLogger(IpDataViewHelper.class.getName());
+	private static Logger log = Logger.getLogger(IpDataHelper.class.getName());
 	private static CacheInterface cache = new FifoCache();
 
 
@@ -76,7 +75,7 @@ public class IpDataViewHelper {
 	public static void populateIpError(IpDataDisplayBean displayBean){
 		displayBean.setError(true);
 		displayBean.setErrorMsg(ConfigReader.getInvalidIpAddrMsg());
-		displayBean.setIpAddr(UNKNOWN_VALUE);
+		displayBean.setIpAddr(IpUtil.UNKNOWN_VALUE);
 
 	}
 

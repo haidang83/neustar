@@ -47,7 +47,6 @@ public class IpDetailService {
 			httpget.getRequestLine();
 			response = httpclient.execute(httpget);
 			HttpEntity entity = response.getEntity();
-			// Print the response
 			StatusLine statusLine = response.getStatusLine();
 			log.info(String.format("ipAddr: %s, status: %s", ipAddr, statusLine));
 			

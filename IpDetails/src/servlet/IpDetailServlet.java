@@ -11,10 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
 
+import data.IpDataHelper;
+
 import util.IpUtil;
-import view.IpDataViewHelper;
-import webService.IpDetailService;
-import bean.GeoPointResponseBean;
 import bean.IpDataDisplayBean;
 
 /**
@@ -32,7 +31,6 @@ public class IpDetailServlet extends HttpServlet {
      */
     public IpDetailServlet() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
 	/**
@@ -52,18 +50,14 @@ public class IpDetailServlet extends HttpServlet {
 			if (!IpUtil.isValidIpAddr(ipAddress)) {
 				// display error
 				log.error("invalid ipAddr: " + ipAddress);
-				IpDataViewHelper.populateIpError(displayBean);
+				IpDataHelper.populateIpError(displayBean);
 			} else {
-				//GeoPointResponseBean ipData = IpDetailService.getIpData(ipAddress);
-				//IpDataViewHelper.populateIpData(ipData, displayBean);
-				//displayBean.setIpAddr(ipAddress);
-				
-				displayBean = IpDataViewHelper.getIpDisplayBean(ipAddress);
+				displayBean = IpDataHelper.getIpDisplayBean(ipAddress);
 			}
 
 		} catch (Exception e) {
 			//show general error msg
-			IpDataViewHelper.populateGeneralErrorMsg(displayBean);
+			IpDataHelper.populateGeneralErrorMsg(displayBean);
 			log.error("Exception caught in IpDetailServlet", e);
 		}
         request.setAttribute(IP_BEAN_ATTR_NAME, displayBean);

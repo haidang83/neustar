@@ -1,9 +1,17 @@
 package bean;
 
+import util.IpUtil;
+
 public class IpDataDisplayBean {
 	private boolean isError;
 	private String errorMsg, country, state, city, ipAddr;
+	
 	private double longitude, latitude;
+	
+	public IpDataDisplayBean(){
+		//init to unknown values
+		country = state = city = ipAddr = IpUtil.UNKNOWN_VALUE;
+	}
 	
 	public boolean getIsError() {
 		return isError;

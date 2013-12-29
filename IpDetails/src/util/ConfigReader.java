@@ -7,6 +7,8 @@ import java.util.Properties;
 
 
 public class ConfigReader {
+	private static final String MAX_NUM_CACHE_ITEM = "max.num.cache.item";
+
 	private static final String USE_CACHE = "useCache";
 
 	private static final String SERVICE_METHOD = "service.method";
@@ -25,8 +27,6 @@ public class ConfigReader {
 	
 	private static final String ERROR_MSG_PREFIX = "error.msg.prefix";
 
-	//static Logger log = Logger.getLogger(ConfigReader.class.getName());
-	
 	private static final String PROPERTIES_FILE_LOCATION = "util/config.properties";
 
 	private static Properties prop = null;
@@ -95,5 +95,9 @@ public class ConfigReader {
 	
 	public static boolean isUseCache(){
 		return Boolean.parseBoolean(getProperty(USE_CACHE));
+	}
+	
+	public static int maxNumItemInCache(){
+		return Integer.parseInt(getProperty(MAX_NUM_CACHE_ITEM));
 	}
 }
