@@ -1,9 +1,17 @@
 package view;
 
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+
+import org.apache.http.ParseException;
 import org.apache.log4j.Logger;
+
+import cache.CacheInterface;
+import cache.FifoCache;
 
 import util.ConfigReader;
 import util.IpUtil;
+import webService.IpDetailService;
 import bean.GeoPointResponseBean;
 import bean.GeoPointResponseBean.CityData;
 import bean.GeoPointResponseBean.CountryData;
@@ -16,8 +24,27 @@ public class IpDataViewHelper {
 
 	private static final String UNKNOWN_VALUE = "Unknown";
 	private static Logger log = Logger.getLogger(IpDataViewHelper.class.getName());
+	private static CacheInterface cache = new FifoCache();
 
-	public static void populateIpData(GeoPointResponseBean response, IpDataDisplayBean displayBean){
+
+	public static IpDataDisplayBean getIpDisplayBean(String ipAddr) throws ParseException, NoSuchAlgorithmException, IOException{
+		IpDataDisplayBean displayBean = null;
+		if (ConfigReader.isUseCache()){
+			displayBean = cache.retrieve(ipAddr);
+		}
+		
+		if (displayBean == null){
+			//need to call the api
+			displayBean = new IpDataDisplayBean();
+			displayBean.setIpAddr(ipAddr);
+			GeoPointResponseBean resp = IpDetailService.getIpData(ipAddr);
+			populateIpData(resp, displayBean);
+			cache.addElement(displayBean);
+		}
+		return displayBean;
+	}
+
+	private static void populateIpData(GeoPointResponseBean response, IpDataDisplayBean displayBean){
 		
 		if (response == null){
 			populateGeneralErrorMsg(displayBean);

@@ -7,6 +7,8 @@ import java.util.Properties;
 
 
 public class ConfigReader {
+	private static final String USE_CACHE = "useCache";
+
 	private static final String SERVICE_METHOD = "service.method";
 
 	private static final String SERVICE_VERSION = "service.version";
@@ -89,5 +91,9 @@ public class ConfigReader {
 
 	public static String getServiceMethod() {
 		return getProperty(SERVICE_METHOD);
+	}
+	
+	public static boolean isUseCache(){
+		return Boolean.parseBoolean(getProperty(USE_CACHE));
 	}
 }

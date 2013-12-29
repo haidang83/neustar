@@ -54,10 +54,11 @@ public class IpDetailServlet extends HttpServlet {
 				log.error("invalid ipAddr: " + ipAddress);
 				IpDataViewHelper.populateIpError(displayBean);
 			} else {
-				GeoPointResponseBean ipData;
-				ipData = IpDetailService.getIpData(ipAddress);
-				IpDataViewHelper.populateIpData(ipData, displayBean);
-				displayBean.setIpAddr(ipAddress);
+				//GeoPointResponseBean ipData = IpDetailService.getIpData(ipAddress);
+				//IpDataViewHelper.populateIpData(ipData, displayBean);
+				//displayBean.setIpAddr(ipAddress);
+				
+				displayBean = IpDataViewHelper.getIpDisplayBean(ipAddress);
 			}
 
 		} catch (Exception e) {

@@ -31,9 +31,9 @@ public class IpDetailService {
 	private static final String MD5 = "MD5";
 	private static final String HEX_FORMAT = "%032x";
 	private static Logger log = Logger.getLogger(IpDetailService.class.getName());
-
-
+	
 	public static GeoPointResponseBean getIpData(String ipAddr) throws ParseException, IOException, NoSuchAlgorithmException {
+		
 		HttpResponse response = null;
 		GeoPointResponseBean ipResponse = null;
 		DefaultHttpClient httpclient = new DefaultHttpClient();
