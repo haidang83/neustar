@@ -1,3 +1,0 @@
-18:40:20,903 ERROR http-bio-8080-exec-3 (IpDetailServlet.java:54) - invalid ipAddr: 0:0:0:0:0:0:0:1
-18:40:55,881 INFO http-bio-8080-exec-6 (IpDetailService.java:52) - ipAddr: 127.0.0.1, status: HTTP/1.1 404 Not Found
-18:40:55,963 ERROR http-bio-8080-exec-6 (IpDataViewHelper.java:33) - gds httpStatus: 404, errorMsg: No IP mapping exists for [127.0.0.1]
