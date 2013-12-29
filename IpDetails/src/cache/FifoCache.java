@@ -8,7 +8,7 @@ import util.ConfigReader;
 import bean.IpDataDisplayBean;
 
 public class FifoCache implements CacheInterface {
-	public static int MAX_ITEM_IN_CACHE = ConfigReader.maxNumItemInCache();
+	private static int MAX_ITEM_IN_CACHE = ConfigReader.maxNumItemInCache();
 	private final Map<String, IpDataDisplayBean> cache = new LinkedHashMap<String, IpDataDisplayBean>(MAX_ITEM_IN_CACHE) {
 	 
 	            /** Serial UID.*/ 
