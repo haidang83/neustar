@@ -2,6 +2,9 @@ package bean;
 
 import util.IpUtil;
 
+/**
+ * edited using github editor
+ * */
 public class IpDataDisplayBean {
 	private boolean isError;
 	private String errorMsg, country, state, city, ipAddr;
