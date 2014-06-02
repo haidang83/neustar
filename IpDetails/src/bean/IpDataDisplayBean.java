@@ -3,7 +3,7 @@ package bean;
 import util.IpUtil;
 
 /**
- * edited using github editor
+ * edited using github editor (2nd time)
  * */
 public class IpDataDisplayBean {
 	private boolean isError;
