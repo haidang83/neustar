@@ -1,5 +1,7 @@
 package bean;
-
+/**
+ * edited on github as test
+ */
 public class GeoPointResponseBean {
 	private Ipinfo ipinfo;
 	private GdsError gds_error;
