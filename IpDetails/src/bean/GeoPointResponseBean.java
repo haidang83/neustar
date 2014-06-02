@@ -1,6 +1,6 @@
 package bean;
 /**
- * edited on github as test (2nd time)
+ * edited on github as test (local change)
  */
 public class GeoPointResponseBean {
 	private Ipinfo ipinfo;
