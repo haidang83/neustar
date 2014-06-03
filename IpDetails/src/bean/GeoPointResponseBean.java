@@ -1,6 +1,6 @@
 package bean;
 /**
- * updated in forked branch
+ * updated in original
  */
 public class GeoPointResponseBean {
 	private Ipinfo ipinfo;
